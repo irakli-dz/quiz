@@ -1,15 +1,19 @@
 // tslint:disable:component-selector
+
 import { Component } from '@angular/core';
+import { ApiService } from './app.service';
 
 
-@Component ({
+@Component({
     selector: 'question',
     templateUrl: './question.component.html'
 })
-
 export class QuestionComponent {
-     post(question) {
-        console.log(question);
-    }
 
+    question = {};
+    constructor(private api: ApiService) {}
+
+    post(question) {
+        this.api.postQuestion(question);
+    }
 }
